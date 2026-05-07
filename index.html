@@ -7,25 +7,82 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Yapılacaklar</h1>
 
-    <div class="input-area">
-      <input type="text" id="todoInput" placeholder="Yeni görev ekle..." autocomplete="off">
-      <button id="addBtn">Ekle</button>
+  <!-- AUTH EKRANI -->
+  <div id="screen-auth" class="screen">
+    <div class="card">
+      <h1>Yapılacaklar</h1>
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Giriş Yap</button>
+        <button class="tab" data-tab="register">Kayıt Ol</button>
+      </div>
+
+      <form id="form-login" class="auth-form">
+        <input type="email" id="login-email" placeholder="E-posta" required autocomplete="email">
+        <input type="password" id="login-password" placeholder="Şifre" required autocomplete="current-password">
+        <button type="submit" class="btn-primary">Giriş Yap</button>
+        <p class="auth-error" id="login-error"></p>
+      </form>
+
+      <form id="form-register" class="auth-form hidden">
+        <input type="email" id="reg-email" placeholder="E-posta" required autocomplete="email">
+        <input type="password" id="reg-password" placeholder="Şifre (en az 6 karakter)" required minlength="6" autocomplete="new-password">
+        <input type="password" id="reg-password2" placeholder="Şifre tekrar" required autocomplete="new-password">
+        <button type="submit" class="btn-primary">Kayıt Ol</button>
+        <p class="auth-error" id="reg-error"></p>
+      </form>
     </div>
+  </div>
 
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">Tümü</button>
-      <button class="filter-btn" data-filter="active">Aktif</button>
-      <button class="filter-btn" data-filter="completed">Tamamlanan</button>
+  <!-- OTP EKRANI -->
+  <div id="screen-otp" class="screen hidden">
+    <div class="card">
+      <div class="otp-icon">✉️</div>
+      <h2>E-postanızı Doğrulayın</h2>
+      <p class="otp-desc">
+        <strong id="otp-email-display"></strong> adresine 6 haneli doğrulama kodu gönderdik.
+      </p>
+      <form id="form-otp">
+        <div class="otp-inputs">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+        </div>
+        <button type="submit" class="btn-primary" id="otp-submit">Doğrula</button>
+        <p class="auth-error" id="otp-error"></p>
+        <button type="button" class="btn-link" id="otp-resend">Kodu tekrar gönder</button>
+      </form>
     </div>
+  </div>
 
-    <ul id="todoList"></ul>
+  <!-- TODO EKRANI -->
+  <div id="screen-app" class="screen hidden">
+    <div class="container">
+      <div class="app-header">
+        <h1>Yapılacaklar</h1>
+        <button id="logout-btn" class="btn-logout">Çıkış</button>
+      </div>
 
-    <div class="footer" id="footer">
-      <span id="itemCount"></span>
-      <button id="clearCompleted">Tamamlananları Sil</button>
+      <div class="input-area">
+        <input type="text" id="todoInput" placeholder="Yeni görev ekle..." autocomplete="off">
+        <button id="addBtn">Ekle</button>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Tümü</button>
+        <button class="filter-btn" data-filter="active">Aktif</button>
+        <button class="filter-btn" data-filter="completed">Tamamlanan</button>
+      </div>
+
+      <ul id="todoList"></ul>
+
+      <div class="footer" id="footer">
+        <span id="itemCount"></span>
+        <button id="clearCompleted">Tamamlananları Sil</button>
+      </div>
     </div>
   </div>
 

@@ -14,6 +14,163 @@ body {
   padding: 40px 16px;
 }
 
+.hidden { display: none !important; }
+
+/* ── SCREENS ── */
+.screen {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ── AUTH & OTP CARD ── */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 400px;
+  padding: 36px 32px;
+  text-align: center;
+}
+
+.card h1 {
+  font-size: 1.8rem;
+  color: #1a1a2e;
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+
+/* ── TABS ── */
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 24px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  color: #888;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab.active {
+  color: #6c63ff;
+  border-bottom-color: #6c63ff;
+  font-weight: 600;
+}
+
+/* ── AUTH FORM ── */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  text-align: left;
+}
+
+.auth-form input:focus {
+  border-color: #6c63ff;
+}
+
+.auth-error {
+  color: #e74c3c;
+  font-size: 0.83rem;
+  min-height: 18px;
+  text-align: left;
+}
+
+/* ── OTP SCREEN ── */
+.otp-icon {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+}
+
+.otp-desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.otp-inputs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.otp-digit {
+  width: 46px;
+  height: 54px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+  color: #1a1a2e;
+}
+
+.otp-digit:focus {
+  border-color: #6c63ff;
+}
+
+.otp-digit.filled {
+  border-color: #6c63ff;
+  background: #f3f2ff;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #6c63ff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  text-decoration: underline;
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  width: 100%;
+  padding: 11px;
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover { background: #574fd6; }
+.btn-primary:disabled { background: #b0acf0; cursor: not-allowed; }
+
+/* ── TODO APP ── */
 .container {
   background: #fff;
   border-radius: 12px;
@@ -23,11 +180,32 @@ body {
   padding: 32px;
 }
 
-h1 {
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
   font-size: 1.8rem;
   color: #1a1a2e;
-  margin-bottom: 24px;
-  text-align: center;
+}
+
+.btn-logout {
+  padding: 6px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: none;
+  color: #888;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  border-color: #e74c3c;
+  color: #e74c3c;
 }
 
 .input-area {
@@ -46,9 +224,7 @@ h1 {
   transition: border-color 0.2s;
 }
 
-.input-area input:focus {
-  border-color: #6c63ff;
-}
+.input-area input:focus { border-color: #6c63ff; }
 
 .input-area button {
   padding: 10px 18px;
@@ -61,9 +237,7 @@ h1 {
   transition: background 0.2s;
 }
 
-.input-area button:hover {
-  background: #574fd6;
-}
+.input-area button:hover { background: #574fd6; }
 
 .filters {
   display: flex;
@@ -105,7 +279,6 @@ h1 {
   border: 1px solid #eee;
   border-radius: 8px;
   background: #fafafa;
-  transition: opacity 0.2s;
   animation: slideIn 0.2s ease;
 }
 
@@ -114,9 +287,7 @@ h1 {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.todo-item.completed {
-  opacity: 0.55;
-}
+.todo-item.completed { opacity: 0.55; }
 
 .todo-item input[type="checkbox"] {
   width: 18px;
@@ -150,9 +321,7 @@ h1 {
   flex-shrink: 0;
 }
 
-.delete-btn:hover {
-  color: #e74c3c;
-}
+.delete-btn:hover { color: #e74c3c; }
 
 .footer {
   display: flex;
@@ -176,9 +345,7 @@ h1 {
   transition: background 0.2s;
 }
 
-#clearCompleted:hover {
-  background: #fdecea;
-}
+#clearCompleted:hover { background: #fdecea; }
 
 .loading {
   text-align: center;
@@ -188,6 +355,7 @@ h1 {
   list-style: none;
 }
 
+/* ── TOAST ── */
 .error-toast {
   position: fixed;
   bottom: 24px;
