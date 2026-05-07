@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo Uygulaması</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Yapılacaklar</h1>
+
+    <div class="input-area">
+      <input type="text" id="todoInput" placeholder="Yeni görev ekle..." autocomplete="off">
+      <button id="addBtn">Ekle</button>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Tümü</button>
+      <button class="filter-btn" data-filter="active">Aktif</button>
+      <button class="filter-btn" data-filter="completed">Tamamlanan</button>
+    </div>
+
+    <ul id="todoList"></ul>
+
+    <div class="footer" id="footer">
+      <span id="itemCount"></span>
+      <button id="clearCompleted">Tamamlananları Sil</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
